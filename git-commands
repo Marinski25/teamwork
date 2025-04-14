@@ -1,0 +1,45 @@
+-- Einrichten
+git --version			Version prüfen um zu sehen ob git installiert wurde
+sudo apt update			Paketliste Updaten
+sudo apt upgrade		Pakete aktualisieren (falls git bereits installiert wurde)
+sudo apt install git - y	Git installieren
+
+-- Erstmalige git Konfiguration
+git config --list							Git konfiguration einsehen
+git config --global init.defaultBranch					Setze initialen default branch Name 
+git config --global user.name <username>				Username in der in der Konfuiguration eingeben
+git config --global user.email <email>					Email in der in der Konfuiguration eingeben
+
+-- Projekt Konfiguration
+git branch -m <new-branch-name>		Name des aktuellen Branches verändern
+git branch <branch-name>		Neuer Branch erstellen
+
+-- Projekt
+git init				Neues Projekt im aktualles Verzeichnis erstellen
+git status				Aktuellen Status einsehen (Welcher Branch ist aktuell, welche Datein wurden hinzugefügt/bearbetiet und wie ist der Stand)
+git checkout <branch-name>		Branch wechseln
+git checkout <commit-hash>		Zu anderen commit wechseln
+git reset --hard <commit-hash>		Zu einen alten Commit zurückkehren, das neue wird gelöscht, durch das "--hard" werden die Daten des neuen Commits gelöscht
+git reset --hard <commit-hash>		Zu einen alten Commit zurückkehren, das neue wird gelöscht, durch das "--soft" werden die Daten des neuen Commits behalten
+git log					Commit historie anzeigen lassen
+git add <file-name>			Datei zum commiten bereit machen
+git add .				Alle Datein zum commiten bereit machen
+git commit -m <commit-message>		Zum änderungen commiten
+git push -u origin main			Zum erstmaligen pushen aufs remote repository, setzt fest zu welchen remote repository und branch es pushen soll
+git push				Zum standard remote repository und branch pushen
+git pull				Zum pullen aus dem remote repository und aktiven branch
+-- SSH Einrichten
+Schritt 1:
+ssh-keygen -t ed25519 -C <email>	Erzeugt private und public keys im ~/.ssh Verzeichnis
+
+Schritt 2:
+cat ~/.ssh/<public-key-name>		Zeigt den public Key an, diese kopieren
+
+Schritt 3:
+Bei github Settings/"SSH keys and GPG keys"/"New SSH key auswählen und dort den kopierten key einfügen
+
+Schritt 4:
+ssh-add ~/.ssh/<private-key-name>
+
+Schritt 5:
+git remote add <repository-alias> <ssh-github-link>		Alias name unserer Wahl, allerding ist origin die Konvention
