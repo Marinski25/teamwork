@@ -10,9 +10,12 @@ git config --global init.defaultBranch					Setze initialen default branch Name
 git config --global user.name <username>				Username in der in der Konfuiguration eingeben
 git config --global user.email <email>					Email in der in der Konfuiguration eingeben
 
--- Projekt Konfiguration
+-- Branch Handlig
 git branch -m <new-branch-name>		Name des aktuellen Branches verändern
 git branch <branch-name>		Neuer Branch erstellen
+git branch -d <branch-name>		Branch löschen
+git merge <branch-name>			Den eingegebenen Branch mit dem Aktuellen Branch verbinden (mergen)
+
 
 -- Projekt
 git init				Neues Projekt im aktualles Verzeichnis erstellen
@@ -28,6 +31,11 @@ git commit -m <commit-message>		Zum änderungen commiten
 git push -u origin main			Zum erstmaligen pushen aufs remote repository, setzt fest zu welchen remote repository und branch es pushen soll
 git push				Zum standard remote repository und branch pushen
 git pull				Zum pullen aus dem remote repository und aktiven branch
+
+-- github
+git remote add origin <ssh-project-link>	Zum verbinden eines neuen Projekts mit github
+
+
 -- SSH Einrichten
 Schritt 1:
 ssh-keygen -t ed25519 -C <email>	Erzeugt private und public keys im ~/.ssh Verzeichnis

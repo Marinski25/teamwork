@@ -1,0 +1,117 @@
+======================================
+== 🔧 Git Grundlagen für Einsteiger ==
+======================================
+
+== 🛠️ Git Installation & Einrichtung ==
+
+git --version
+→ Prüft, ob Git installiert ist und zeigt die Version an.
+
+sudo apt update
+→ Aktualisiert die Paketliste.
+
+sudo apt upgrade
+→ Aktualisiert alle installierten Pakete (optional, aber empfohlen).
+
+sudo apt install git -y
+→ Installiert Git.
+
+== ⚙️ Erstkonfiguration von Git ==
+
+git config --list
+→ Zeigt die aktuelle Git-Konfiguration an.
+
+git config --global init.defaultBranch main
+→ Legt den Standardnamen für neue Branches fest (z. B. „main“ statt „master“).
+
+git config --global user.name "<dein-Name>"
+→ Setzt deinen Namen für Git-Commits.
+
+git config --global user.email "<deine-E-Mail>"
+→ Setzt deine E-Mail-Adresse für Git-Commits.
+
+== 🌱 Git-Projekt starten ==
+
+git init
+→ Erstellt ein neues Git-Repository im aktuellen Verzeichnis.
+
+git status
+→ Zeigt den aktuellen Status: unversionierte Dateien, Staging-Bereich, Branch etc.
+
+git log
+→ Zeigt die Commit-Historie an.
+
+== 🧩 Dateien verwalten & Committen ==
+
+git add <dateiname>
+→ Stellt eine Datei für den nächsten Commit bereit.
+
+git add .
+→ Stellt alle Änderungen im aktuellen Verzeichnis für den Commit bereit.
+
+git commit -m "Commit-Nachricht"
+→ Speichert die Änderungen dauerhaft im Repository mit Nachricht.
+
+== 🌿 Branches verwalten ==
+
+git branch
+→ Zeigt alle lokalen Branches an.
+
+git branch <neuer-Branch>
+→ Erstellt einen neuen Branch.
+
+git branch -m <neuer-Name>
+→ Benennt den aktuellen Branch um.
+
+git branch -d <Branch-Name>
+→ Löscht einen Branch (nur, wenn er gemerged ist).
+
+git checkout <Branch-Name>
+→ Wechselt zu einem anderen Branch.
+
+git merge <Branch-Name>
+→ Führt den angegebenen Branch in den aktuellen zusammen (Merge).
+
+== 📦 Mit Commits arbeiten ==
+
+git checkout <commit-hash>
+→ Wechselt zu einem früheren Commit (Detached HEAD!).
+
+git reset --soft <commit-hash>
+→ Setzt auf einen früheren Commit zurück, behält aber die Änderungen im Arbeitsverzeichnis.
+
+git reset --hard <commit-hash>
+→ Setzt auf einen früheren Commit zurück und löscht alle nachfolgenden Änderungen unwiderruflich.
+
+== 🌍 Arbeiten mit Remote-Repositories (GitHub) ==
+
+git remote add origin <ssh-link>
+→ Verbindet das lokale Repository mit einem entfernten GitHub-Repository.
+
+git push -u origin main
+→ Pusht das erste Mal und setzt die Verbindung zum Remote-Branch „main“.
+
+git push
+→ Pusht aktuelle Änderungen auf den Remote-Branch.
+
+git pull
+→ Holt die neuesten Änderungen vom Remote-Repository.
+
+== 🔐 SSH-Zugang zu GitHub einrichten ==
+
+Schritt 1: SSH-Schlüssel erzeugen
+ssh-keygen -t ed25519 -C "<deine-E-Mail>"
+→ Erstellt ein neues Schlüsselpaar im Verzeichnis ~/.ssh.
+
+Schritt 2: Public Key anzeigen und kopieren
+cat ~/.ssh/<public-key-name>.pub
+
+Schritt 3:
+→ Gehe zu GitHub → Einstellungen → SSH and GPG Keys → „New SSH Key“ → Public Key einfügen.
+
+Schritt 4: Private Key zum SSH-Agent hinzufügen
+ssh-add ~/.ssh/<private-key-name>
+
+Schritt 5: Remote-Repository mit SSH hinzufügen
+git remote add origin <SSH-Link>
+→ origin ist der Standardname für das Haupt-Remote-Repository.
